@@ -34,8 +34,8 @@ const VehicleSchema = new Schema({
 		required: true,
 	},
 	being_processed: {
-		type: Boolean,
-		default: false,
+		type: Schema.Types.ObjectId,
+		default: null,
 	},
 });
 

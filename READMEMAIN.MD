@@ -10,9 +10,9 @@ You have been provided a repository that contains a Django, Flask, or Rails appl
 
    Requirements
 
-   - create shifts
-   - add vehicles to shifts
-   - review all vehicles in a shift
+   - create shifts -> done
+   - add vehicles to shifts -> part of creating shifts
+   - review all vehicles in a shift -> done
    - complete a battery swap for a vehicle
    - check if a swap has been completed for any vehicle in a shift
    - query shift to see if all vehicles in the shift have had their battery swaps

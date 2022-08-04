@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const vehicleService = require("../services/vehicleService");
+const shiftService = require("../services/shiftService");
 
 // Get vehicles
 router.get("/", async function (req, res) {
@@ -15,6 +16,14 @@ router.get("/createDefaults", async function (req, res) {
 // create random vehicle
 router.get("/random", async function (req, res) {
 	return res.json(await vehicleService.createRandomVehicle());
+});
+
+// Battery swap
+router.get("/batterySwap/:id/shift/:sid", async function (req, res) {
+	await vehicleService.batterySwap(req.params.id);
+	if (req.params.sid) {
+		await shiftService.addCompletedVehicle(req.params.sid, req.params.id);
+	}
 });
 
 // Get vehicle by id

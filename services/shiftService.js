@@ -9,9 +9,16 @@ class ShiftService {
 			return e.message;
 		}
 	}
-	async addShift(lat, long) {
+	async addShift(vehicles) {
 		try {
-			return await Shift.create();
+			let start_time = new Date();
+			let end_time = start_time.setHours(start_time.getHours() + 8);
+			let newShift = {
+				start_time,
+				end_time,
+				vehicles,
+			};
+			return await Shift.create(newShift);
 		} catch (e) {
 			console.error(e);
 			return e.message;
@@ -33,6 +40,33 @@ class ShiftService {
 			return e.message;
 		}
 	}
+
+	async getShiftVehiclesById(id) {
+		try {
+			return await Shift.findById(id, {
+				vehicles: 1,
+				_id: 0,
+			});
+		} catch (e) {
+			console.error(e);
+			return e.message;
+		}
+	}
+
+	async addCompletedVehicle(id, vehicle) {
+		try {
+			return await Shift.findByIdAndUpdate(id, {
+				$push: {
+					vehicles_completed: vehicle,
+				},
+			});
+		} catch (e) {
+			console.error(e);
+			return e.message;
+		}
+	}
+
+	async getVehiclesRemaining(id) {}
 }
 
 let shiftService = new ShiftService();
