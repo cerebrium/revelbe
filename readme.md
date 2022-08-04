@@ -1,6 +1,3 @@
-# Take Home Interviews
-
-You have been provided a repository that contains a Django, Flask, or Rails application that hosts a few endpoints. We tried to keep our implementation as simple as possible, but you should feel free to revise our code to be uniform with the code you provide. Feel free to use any homegrown or third party utilities that you feel that you need. We would like you to complete the following tasks. Please write this code like you would write production code, whatever that means to you.
 
 ## Tasks
 
