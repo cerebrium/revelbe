@@ -23,7 +23,7 @@ You have been provided a repository that contains a Django, Flask, or Rails appl
 
    - complete a battery swap for a vehicle -> done
      Put: '/batteryswap/:id/shift/:sid'
-     id: nuomber -> id of vehicle
+     id: number -> id of vehicle
      sid: number -> id of shift
    - check if a swap has been completed for any vehicle in a shift -> done
      Get: '/api/shifts/:id/vehicles/:vid/swap'
@@ -36,3 +36,12 @@ You have been provided a repository that contains a Django, Flask, or Rails appl
    Design and implement the database and api for the above
 
 2. Implement automatic shift creation. Automatic shift creation should take a lat long that it uses as a start point. Your vehicle selection should select the 20 closest vehicles to that point. The vehicles should be in the order that they should be visited to reduce the amount of distance traveled. e.g. the first vehicle in the list should be the first vehicle that should be visited the second the second and so on. Please use euclidian distance vs drive distance for simplicity.
+
+STEPS TO MAKE IT WORK:
+
+1. have a local mongo db available
+2. yarn start
+3. hit (GET) 'http://localhost:3000/api/vehicles/createDefaults'
+4. defaults are now created, db should be populated
+5. hit (POST) 'http://localhost:3000/api/shifts/ with body: {lat: 40.676695, long: -73.988838} ... or a similar location
+6. shift is created, db should be populated, wll other routes (listed above for the requirements) are now available
