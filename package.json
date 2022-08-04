@@ -1,0 +1,24 @@
+{
+	"name": "revel-take-home",
+	"version": "0.0.0",
+	"description": "Take home revel api",
+	"main": "index.js",
+	"scripts": {
+		"start": "node ./express/app.js",
+		"setup-db": "node sqlite-database/setup.js"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.1",
+		"express": "^4.17.1",
+		"mongodb": "^4.8.1",
+		"mongoose": "^6.5.1",
+		"sequelize": "^6.3.3",
+		"sqlite3": "^5.0.0"
+	}
+}
