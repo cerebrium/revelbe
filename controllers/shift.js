@@ -12,6 +12,33 @@ router.get("/:id/vehicles/", async function (req, res) {
 	return res.json(await shiftService.getShiftVehiclesById(req.params.id));
 });
 
+router.get("/:id/vehicles/completed", async function (req, res) {
+	let remainingVehicles = await shiftService.getShiftVehiclesById(
+		req.params.id
+	);
+	if (remainingVehicles.length === 0) {
+		return res.json({
+			message: "All vehicles have been completed",
+		});
+	} else {
+		return res.json({
+			message: `Amount of remaining vehicles: ${remainingVehicles.length}`,
+			vehicles: remainingVehicles,
+		});
+	}
+});
+
+router.get("/:id/vehicles/:vid", async function (req, res) {
+	let visited = await shiftService.checkIfVehicleIdVisited(
+		req.params.id,
+		req.params.vid
+	);
+
+	return res.json({
+		visited: visited,
+	});
+});
+
 // create shift
 router.post("/", async function (req, res) {
 	// Find vehicles to add

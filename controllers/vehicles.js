@@ -19,11 +19,14 @@ router.get("/random", async function (req, res) {
 });
 
 // Battery swap
-router.get("/batterySwap/:id/shift/:sid", async function (req, res) {
+router.get("/batteryswap/:id/shift/:sid", async function (req, res) {
 	await vehicleService.batterySwap(req.params.id);
 	if (req.params.sid) {
 		await shiftService.addCompletedVehicle(req.params.sid, req.params.id);
 	}
+	res.json({
+		message: "Battery swapped",
+	});
 });
 
 // Get vehicle by id

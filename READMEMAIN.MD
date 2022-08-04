@@ -11,11 +11,27 @@ You have been provided a repository that contains a Django, Flask, or Rails appl
    Requirements
 
    - create shifts -> done
+     Post: '/api/shifts'
+     body: {
+     lat: number,
+     long: number
+     }
    - add vehicles to shifts -> part of creating shifts
+
    - review all vehicles in a shift -> done
-   - complete a battery swap for a vehicle
-   - check if a swap has been completed for any vehicle in a shift
-   - query shift to see if all vehicles in the shift have had their battery swaps
+     Get: '/api/shifts/:id/vehicles'
+
+   - complete a battery swap for a vehicle -> done
+     Put: '/batteryswap/:id/shift/:sid'
+     id: nuomber -> id of vehicle
+     sid: number -> id of shift
+   - check if a swap has been completed for any vehicle in a shift -> done
+     Get: '/api/shifts/:id/vehicles/:vid/swap'
+     id: number -> id of shift
+     vid: number -> id of vehicle
+   - query shift to see if all vehicles in the shift have had their battery swaps -> done
+     Get: '/api/shifts/:id'
+     id: number -> id of shift
 
    Design and implement the database and api for the above
 
