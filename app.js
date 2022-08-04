@@ -33,7 +33,7 @@ const app = express();
 var cors = require("cors");
 var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const db = require("../database/db");
+const db = require("./database/db");
 const Vehicles = require("./controllers/vehicles");
 
 // middleware
@@ -41,10 +41,6 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("backend"));
-// app.use("/users", userController);
-// app.use("/heatmaps", heatmapController);
-// app.use("/profiles", profileController);
 app.use("/api/vehicles", Vehicles);
 
 mongoose.set("debug", true);

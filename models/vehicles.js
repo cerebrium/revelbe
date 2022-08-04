@@ -21,6 +21,10 @@ const VehicleSchema = new Schema({
 		type: [Number],
 		required: true,
 	},
+	being_processed: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 module.exports.Vehicles = model("Vehicles", VehicleSchema);
