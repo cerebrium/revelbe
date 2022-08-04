@@ -7,6 +7,11 @@ router.get("/", async function (req, res) {
 	return res.json(await vehicleService.getVehicles());
 });
 
+// Create defaults
+router.get("/createDefaults", async function (req, res) {
+	return res.json(await vehicleService.createDefaults());
+});
+
 // create random vehicle
 router.get("/random", async function (req, res) {
 	return res.json(await vehicleService.createRandomVehicle());

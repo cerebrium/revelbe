@@ -35,6 +35,7 @@ var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const db = require("./database/db");
 const Vehicles = require("./controllers/vehicles");
+const Shifts = require("./controllers/shift");
 
 // middleware
 app.use(cors());
@@ -42,6 +43,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/vehicles", Vehicles);
+app.use("/api/shifts", Shifts);
 
 mongoose.set("debug", true);
 

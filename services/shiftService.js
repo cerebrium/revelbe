@@ -9,7 +9,7 @@ class ShiftService {
 			return e.message;
 		}
 	}
-	async addShift() {
+	async addShift(lat, long) {
 		try {
 			return await Shift.create();
 		} catch (e) {

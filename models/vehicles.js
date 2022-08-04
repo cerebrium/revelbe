@@ -1,5 +1,17 @@
 const { model, Schema } = require("mongoose");
 
+const pointSchema = new Schema({
+	type: {
+		type: String,
+		enum: ["Point"],
+		required: true,
+	},
+	coordinates: {
+		type: [Number],
+		required: true,
+	},
+});
+
 const VehicleSchema = new Schema({
 	license_plate: {
 		type: String,
@@ -18,7 +30,7 @@ const VehicleSchema = new Schema({
 		required: true,
 	},
 	location: {
-		type: [Number],
+		type: pointSchema,
 		required: true,
 	},
 	being_processed: {
@@ -26,5 +38,7 @@ const VehicleSchema = new Schema({
 		default: false,
 	},
 });
+
+VehicleSchema.index({ location: "2dsphere" });
 
 module.exports.Vehicles = model("Vehicles", VehicleSchema);
